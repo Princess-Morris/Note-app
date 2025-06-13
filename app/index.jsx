@@ -3,6 +3,8 @@ import PostItImage from '@/assets/images/post-it.png'
 import { useRouter } from "expo-router";
 
 const Home = () => {
+  const router = useRouter();
+
   return (
     <View
       style={styles.container}
@@ -12,6 +14,7 @@ const Home = () => {
       <Text style={styles.subtitle}>Capture your thoughts anytime, anywhere</Text>
 
       <TouchableOpacity 
+      style={styles.button}
       onPress={() => router.push('/notes')}
       >
         <Text style={styles.buttonText}> Get Started</Text>
@@ -46,10 +49,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20
   },
+  button: {
+    backgroundColor: '#007bff',
+    paddingVertical: 12,
+    paddingHorizontal: 25,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
   buttonText: { 
     color: '#fff',
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
 });
 
