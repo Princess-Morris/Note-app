@@ -45,8 +45,14 @@ const styles = StyleSheet.create({
     color: '#666',
     textAlign: 'center',
     marginBottom: 20
-  }
-})
+  },
+  buttonText: { 
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
+});
+
 
 
 export default Home;
