@@ -7,7 +7,8 @@ const Home = () => {
       style={styles.container}
     >
       <Image source={PostItImage} style={styles.image} />
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Text style={styles.title}>Welcome to Notes App</Text>
+      <Text style={styles.subtitle}>Capture your thoughts anytime, anywhere</Text>
     </View>
   );
 }
@@ -25,6 +26,18 @@ const styles = StyleSheet.create({
     height: 100,
     marginBottom: 20,
     borderRadius: 10
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    color: '#333',
+  },
+  subtitle: {
+    fontSize: 16,
+    color: '#666',
+    textAlign: 'center',
+    marginBottom: 20
   }
 })
 
