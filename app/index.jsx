@@ -1,10 +1,12 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Image } from "react-native";
+import PostItImage from '@/assets/images/post-it.png'
 
 const Home = () => {
   return (
     <View
       style={styles.container}
     >
+      <Image source={PostItImage} />
       <Text>Edit app/index.tsx to edit this screen.</Text>
     </View>
   );
