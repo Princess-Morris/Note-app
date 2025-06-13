@@ -1,5 +1,6 @@
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import PostItImage from '@/assets/images/post-it.png'
+import { useRouter } from "expo-router";
 
 const Home = () => {
   return (
@@ -9,6 +10,12 @@ const Home = () => {
       <Image source={PostItImage} style={styles.image} />
       <Text style={styles.title}>Welcome to Notes App</Text>
       <Text style={styles.subtitle}>Capture your thoughts anytime, anywhere</Text>
+
+      <TouchableOpacity 
+      onPress={() => router.push('/notes')}
+      >
+        <Text style={styles.buttonText}> Get Started</Text>
+      </TouchableOpacity>
     </View>
   );
 }
