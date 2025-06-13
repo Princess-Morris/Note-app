@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 
 const NoteScreen = () => {
     const [notes, setNotes] = useState([
@@ -18,6 +18,10 @@ const NoteScreen = () => {
               </View>
             )}
             />
+
+            <TouchableOpacity style={styles.addButton}>
+                <Text style={styles.addButtonText}>+ Add Note</Text>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -39,6 +43,21 @@ const styles = StyleSheet.create({
     noteText: {
        fontSize: 18,
     },
+    addButton:{
+        position: 'absolute',
+        bottom: 20,
+        left: 20,
+        right: 20,
+        backgroundColor: '#007bff',
+        padding: 15,
+        borderRadius: 8,
+        alignItems: 'center',
+    },
+    addButtonText:{
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: 'bold',
+    }
 })
 
 export default NoteScreen;
