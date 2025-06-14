@@ -7,6 +7,7 @@ import { View,
         Modal,
         TextInput
      } from "react-native";
+import NoteItem from "../../assets/images/components/NoteItem";
 
 const NoteScreen = () => {
     const [notes, setNotes] = useState([
@@ -38,9 +39,7 @@ const NoteScreen = () => {
             data={notes}
             keyExtractor={(item) => item.id}
             renderItem={({item}) => (
-              <View style={styles.noteItem}>
-                <Text style={styles.noteText}> {item.text}</Text>
-              </View>
+              <NoteItem note={item} />
             )}
             />
 
@@ -93,14 +92,7 @@ const styles = StyleSheet.create({
         padding: 20,
         backgroundColor: '#fff'
     },
-    noteItem:{
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      backgroundColor: '#f5f5f5',
-      padding: 15,
-      borderRadius: 5,
-      marginVertical: 5
-    },
+    
     noteText: {
        fontSize: 18,
     },
