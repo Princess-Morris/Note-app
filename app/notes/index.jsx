@@ -24,7 +24,7 @@ const NoteScreen = () => {
 
         setNotes((prevNotes) => [
             ...prevNotes,
-            {id: Date.now.toString(), text: newNote},
+            {id: Date.now.toString(), text: newNote}
         ]); 
 
         setNewNote('');
@@ -63,7 +63,7 @@ const NoteScreen = () => {
                    placeholder="Enter note..."
                    placeholderTextColor="#aaa"
                    value={newNote}
-                   onChange={setNewNote}
+                   onChangeText={setNewNote}
                    />
                    <View style={styles.modalButtons}>
                        <TouchableOpacity style={styles.cancelButton} 
