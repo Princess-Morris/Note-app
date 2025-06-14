@@ -87,9 +87,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff'
     },
 
-    noteText: {
-        fontSize: 18,
-    },
     addButton: {
         position: 'absolute',
         bottom: 20,

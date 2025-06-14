@@ -17,6 +17,10 @@ styles = StyleSheet.create({
         borderRadius: 5,
         marginVertical: 5
       },
+      
+      noteText: {
+        fontSize: 18,
+    },
 })
 
 export default NoteItem;
