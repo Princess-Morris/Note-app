@@ -43,9 +43,28 @@ const NoteScreen = () => {
             >
              <View style={styles.modalOverlay}>
                 <View style={styles.modalContent}>
-                   <Text style={styles.modalTitle}>
+                   <Text style={styles.modalTitle}>Add a New Note</Text>
+                   <TextInput 
+                   style={styles.input}
+                   placeholder="Enter note..."
+                   placeholderTextColor="#aaa"
+                   value={newNote}
+                   onChange={setNewNote}
+                   />
+                   <View style={styles.modalButtons}>
+                       <TouchableOpacity style={styles.cancelButton} 
+                       onPress = {() => setModalVisible(false)}
+                       >
+                        <Text style={styles.cancelButtonText}>Cancel</Text>
 
-                   </Text>
+                       </TouchableOpacity>
+                       <TouchableOpacity style={styles.addButton} 
+                       onPress = {() => setModalVisible(false)}
+                       >
+                        <Text style={styles.cancelButtonText}>Cancel</Text>
+
+                       </TouchableOpacity>
+                   </View>
                 </View>
 
              </View>
@@ -85,6 +104,18 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 18,
         fontWeight: 'bold',
+    },
+    modalOverlay:{
+
+    },
+    modalContent: {
+        
+    },
+    modalTitle: {
+
+    },
+    input:{
+
     }
 })
 
