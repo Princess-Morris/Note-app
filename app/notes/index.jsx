@@ -1,27 +1,55 @@
 import { useState } from "react";
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from "react-native";
+import { View,
+     Text,
+      StyleSheet,
+      FlatList,
+       TouchableOpacity,
+        Modal,
+        TextInput
+     } from "react-native";
 
 const NoteScreen = () => {
     const [notes, setNotes] = useState([
         {id: "1", text: "Note One"},
-        {id: "1", text: "Note Two"},
-        {id: "1", text: "Note Three"},
-    ])
+        {id: "2", text: "Note Two"},
+        {id: "3", text: "Note Three"},
+    ]);
+
+    const [modalVisible, setModalVisible] = useState(false);
+    const [newNote, setNewNote] = useState('');
+
     return (
         <View style={styles.container}>
             <FlatList 
             data={notes}
-            keyExtractor={({item}) => item.id}
+            keyExtractor={(item) => item.id}
             renderItem={({item}) => (
               <View style={styles.noteItem}>
-                 <Text style={styles.noteText}>{item.text}</Text>
+                <Text style={styles.noteText}> {item.text}</Text>
               </View>
             )}
             />
 
-            <TouchableOpacity style={styles.addButton}>
+            <TouchableOpacity style={styles.addButton}
+            onPress={() => setModalVisible(true)}
+            >
                 <Text style={styles.addButtonText}>+ Add Note</Text>
             </TouchableOpacity>
+            <Modal
+            visible={modalVisible}
+            animationType="slide"
+            transparent
+            onRequestClose={() => setModalVisible(false)}
+            >
+             <View style={styles.modalOverlay}>
+                <View style={styles.modalContent}>
+                   <Text style={styles.modalTitle}>
+
+                   </Text>
+                </View>
+
+             </View>
+            </Modal>
         </View>
     )
 }
