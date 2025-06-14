@@ -1,19 +1,19 @@
 import { useState } from "react";
-import { View,
-     Text,
-      StyleSheet,
-      FlatList,
-       TouchableOpacity,
-        Modal,
-        TextInput
-     } from "react-native";
-import NoteItem from "../../assets/images/components/NoteItem";
+import {
+    Modal,
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View
+} from "react-native";
+import NoteList from "../../components/NoteList";
 
 const NoteScreen = () => {
     const [notes, setNotes] = useState([
-        {id: "1", text: "Note One"},
-        {id: "2", text: "Note Two"},
-        {id: "3", text: "Note Three"},
+        { id: "1", text: "Note One" },
+        { id: "2", text: "Note Two" },
+        { id: "3", text: "Note Three" },
     ]);
 
     const [modalVisible, setModalVisible] = useState(false);
@@ -25,62 +25,56 @@ const NoteScreen = () => {
 
         setNotes((prevNotes) => [
             ...prevNotes,
-            {id: Date.now.toString(), text: newNote}
-        ]); 
+            { id: Date.now.toString(), text: newNote }
+        ]);
 
         setNewNote('');
         setModalVisible(false);
     }
-    
+
 
     return (
         <View style={styles.container}>
-            <FlatList 
-            data={notes}
-            keyExtractor={(item) => item.id}
-            renderItem={({item}) => (
-              <NoteItem note={item} />
-            )}
-            />
+            <NoteList notes={notes} />
 
             <TouchableOpacity style={styles.addButton}
-            onPress={() => setModalVisible(true)}
+                onPress={() => setModalVisible(true)}
             >
                 <Text style={styles.addButtonText}>+ Add Note</Text>
             </TouchableOpacity>
             <Modal
-            visible={modalVisible}
-            animationType="slide"
-            transparent
-            onRequestClose={() => setModalVisible(false)}
+                visible={modalVisible}
+                animationType="slide"
+                transparent
+                onRequestClose={() => setModalVisible(false)}
             >
-             <View style={styles.modalOverlay}>
-                <View style={styles.modalContent}>
-                   <Text style={styles.modalTitle}>Add a New Note</Text>
-                   <TextInput 
-                   style={styles.input}
-                   placeholder="Enter note..."
-                   placeholderTextColor="#aaa"
-                   value={newNote}
-                   onChangeText={setNewNote}
-                   />
-                   <View style={styles.modalButtons}>
-                       <TouchableOpacity style={styles.cancelButton} 
-                       onPress = {() => setModalVisible(false)}
-                       >
-                        <Text style={styles.cancelButtonText}>Cancel</Text>
+                <View style={styles.modalOverlay}>
+                    <View style={styles.modalContent}>
+                        <Text style={styles.modalTitle}>Add a New Note</Text>
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Enter note..."
+                            placeholderTextColor="#aaa"
+                            value={newNote}
+                            onChangeText={setNewNote}
+                        />
+                        <View style={styles.modalButtons}>
+                            <TouchableOpacity style={styles.cancelButton}
+                                onPress={() => setModalVisible(false)}
+                            >
+                                <Text style={styles.cancelButtonText}>Cancel</Text>
 
-                       </TouchableOpacity>
-                       <TouchableOpacity style={styles.saveButton} 
-                       onPress={addNote}
-                       >
-                        <Text style={styles.saveButtonText}>Save</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.saveButton}
+                                onPress={addNote}
+                            >
+                                <Text style={styles.saveButtonText}>Save</Text>
 
-                       </TouchableOpacity>
-                   </View>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+
                 </View>
-
-             </View>
             </Modal>
         </View>
     )
@@ -92,11 +86,11 @@ const styles = StyleSheet.create({
         padding: 20,
         backgroundColor: '#fff'
     },
-    
+
     noteText: {
-       fontSize: 18,
+        fontSize: 18,
     },
-    addButton:{
+    addButton: {
         position: 'absolute',
         bottom: 20,
         left: 20,
@@ -106,12 +100,12 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         alignItems: 'center',
     },
-    addButtonText:{
+    addButtonText: {
         color: '#fff',
         fontSize: 18,
         fontWeight: 'bold',
     },
-    modalOverlay:{
+    modalOverlay: {
         flex: 1,
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         justifyContent: 'center',
@@ -129,7 +123,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         textAlign: 'center',
     },
-    input:{
+    input: {
         borderWidth: 1,
         borderColor: '#ccc',
         borderRadius: 8,
@@ -137,30 +131,30 @@ const styles = StyleSheet.create({
         fontSize: 16,
         marginBottom: 15
     },
-    modalButtons:{
-       flexDirection: 'row',
-       justifyContent: 'space-between'
+    modalButtons: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
     cancelButton: {
-       backgroundColor: '#ccc',
-       padding: 10,
-       borderRadius: 5,
-       flex: 1,
-       marginRight: 10,
-       alignItems: 'center',
+        backgroundColor: '#ccc',
+        padding: 10,
+        borderRadius: 5,
+        flex: 1,
+        marginRight: 10,
+        alignItems: 'center',
     },
-    cancelButtonText:{
-      fontSize: 16,
-      color: '#333',
+    cancelButtonText: {
+        fontSize: 16,
+        color: '#333',
     },
-    saveButton:{
-       backgroundColor: '#007bff',
-       padding: 10,
-       borderRadius: 5,
-       flex: 1,
-       alignItems: 'center'
+    saveButton: {
+        backgroundColor: '#007bff',
+        padding: 10,
+        borderRadius: 5,
+        flex: 1,
+        alignItems: 'center'
     },
-    saveButtonText:{
+    saveButtonText: {
         fontSize: 16,
         color: '#fff',
     }
