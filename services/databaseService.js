@@ -10,6 +10,19 @@ const databaseService = {
             console.error('Error fetching documents:', error.message);
             return { error: error.message};
         }
+    },
+
+    // create Documents
+    async createDocument(dbId, colId, data, id = null){
+        try{
+           return await databaseService.createDocument(dbId, colId, id || undefined, data);
+        } catch (error){
+            console.error('Error creating document', error.message)
+            return {
+                error: error.message,
+            }
+        }
     }
 }
+
 export default databaseService;

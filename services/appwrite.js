@@ -21,6 +21,9 @@ const client = new Client()
         case 'android':
             client.setPlatform(process.env.EXPO_PUBLIC_APPWRITE_PACKAGE_NAME);
             break;
+        case 'web':
+            default:
+              break;    
     }
 
 const database = new Databases(client);
