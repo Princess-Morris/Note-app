@@ -8,7 +8,7 @@ const databaseService = {
             return response.documents || [];
         } catch (error){
             console.error('Error fetching documents:', error.message);
-            return { error: error.message}
+            return { error: error.message};
         }
     }
 }
