@@ -1,0 +1,2 @@
+import {database} from './appwrite'
+
