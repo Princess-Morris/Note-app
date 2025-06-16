@@ -20,9 +20,9 @@ const databaseService = {
             console.error('Error creating document', error.message)
             return {
                 error: error.message,
-            }
+            };
         }
-    }
+    },
 }
 
 export default databaseService;
