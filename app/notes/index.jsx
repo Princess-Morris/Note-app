@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import {
+    ActivityIndicator,
     Alert,
     Modal,
     StyleSheet,
@@ -62,7 +63,15 @@ const NoteScreen = () => {
 
     return (
         <View style={styles.container}>
-            <NoteList notes={notes} />
+            {/* <NoteList notes={notes} /> */}
+            { loading ? (
+                <ActivityIndicator size='large' color='#007bff' />
+            ) : (
+                <>
+                {error && <Text style={styles.errorText}>{error}</Text>}
+                <NoteList notes={notes} />
+                </>
+            )}
 
             <TouchableOpacity style={styles.addButton}
                 onPress={() => setModalVisible(true)}
