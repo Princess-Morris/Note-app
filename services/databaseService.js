@@ -15,7 +15,7 @@ const databaseService = {
     // create Documents
     async createDocument(dbId, colId, data, id = null){
         try{
-           return await databaseService.createDocument(dbId, colId, id || undefined, data);
+           return await database.createDocument(dbId, colId, id || undefined, data);
         } catch (error){
             console.error('Error creating document', error.message)
             return {
